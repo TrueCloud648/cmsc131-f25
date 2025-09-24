@@ -1,14 +1,20 @@
 public class Account {
+    String ID;
+    String ownerName;
+    double balance;
+    AccountType type;
+
     public Account(
-        String name,
-        double balance,
-        AccountType type
+    String idValue,
+    String owner,
+    double bal,
+    AccountType typeValue
     )  {
         // TODO: Validate that String parameters are not null
-        accountID = id;
-        ownerName = name;
-        accountBalance = balance;
-        accountType = type;
+        ID = idValue;
+        ownerName = owner;
+        balance = bal;
+        type = typeValue;
     }
 
     public String getID() { return accountID; }
