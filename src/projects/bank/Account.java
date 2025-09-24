@@ -17,7 +17,9 @@ public class Account {
         type = typeValue;
     }
 
-    public String getID() { return accountID; }
+    public String getID() { return ID; }
+    public String getownerName() { return ownerName }
+    public double getbalance() { return balance }
 
     // stripped-down version of 'equals' override
     // give it a similar sounding name
