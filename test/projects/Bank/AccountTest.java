@@ -5,6 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+// TODO write test coverage
+
 public class AccountTest {
-    // TODO write test coverage
+
+    private Account accounts
+    
 }
