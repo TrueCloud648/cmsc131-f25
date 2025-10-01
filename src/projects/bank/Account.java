@@ -1,6 +1,8 @@
+package projects.bank;
+
 public class Account {
-    String ID;
-    String ownerName;
+    String ID; // TODO camelCase should use lowercase first letter
+    String ownerName; // correct camelCase variable name
     double balance;
     AccountType type;
 
@@ -18,12 +20,12 @@ public class Account {
     }
 
     public String getID() { return ID; }
-    public String getownerName() { return ownerName }
-    public double getbalance() { return balance }
+    public String getownerName() { return ownerName; }
+    public double getbalance() { return balance; }
 
     // stripped-down version of 'equals' override
     // give it a similar sounding name
     public boolean sameAs(Account other) {
-        return this.GetID().equals(other.getID())
+        return this.getID().equals(other.getID());
     }
 }
