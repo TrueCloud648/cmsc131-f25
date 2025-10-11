@@ -1,4 +1,4 @@
-package projects.Bank;
+package projects.bank;
 
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +11,7 @@ public class BankTest {
 
     @BeforeEach
     void setup() {
-        bank = new Bank();
+        bank = new Bank(); // TODO fix constructor signature
         acct = new Account("id0", "Owner Name", 1.0, AccountType.SAVINGS);
     }
 
