@@ -1,8 +1,8 @@
 package projects.bank;
 
 public class Account {
-    String id; // camelCase should use lowercase first letter
-    String ownerName; // correct camelCase variable name
+    String id;
+    String ownerName;
     double balance;
     AccountType type;
 
