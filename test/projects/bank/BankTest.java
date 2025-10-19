@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import projects.bank.Bank;
-
 
 public class BankTest {
     private Bank bank;
@@ -13,7 +11,7 @@ public class BankTest {
 
     @BeforeEach
     void setup() {
-        bank = new Bank(); // TODO fix constructor signature
+        bank = new Bank();
         acct = new Account("id0", "Owner Name", 1.0, AccountType.SAVINGS);
     }
 

@@ -12,13 +12,18 @@ public class Bank {
         accounts = new Account[newAccountsIncrement];
     }
 
+    /**
+     * TODO description
+     * @param acct - TODO description
+     * @return - TODO description
+     */
     public boolean add (Account acct) {
         if (acct == null) {
             throw new IllegalArgumentException(
                 "Account cannot be null."
             );
         }
-        if (find(acct.getID()) == -1) {
+        if (find(acct.getId()) == -1) { //changed from getID
             try {accounts[idxNextAccount] = acct;
             } catch(ArrayIndexOutOfBoundsException e) {
                 Account[] accountsExtended = new Account[
@@ -37,6 +42,11 @@ public class Bank {
         }
     }
 
+    /**
+     * TODO description
+     * @param accountID - TODO description
+     * @return - TODO description
+     */
     public int find(String accountID) {
         if (accountID == null) {
             throw new IllegalArgumentException(
@@ -44,7 +54,7 @@ public class Bank {
             );
         }
         for (int idxAcct = 0; idxAcct < idxNextAccount; idxAcct++) {
-            if (accounts[idxAcct].getID().equals(accountID)) {
+            if (accounts[idxAcct].getId().equals(accountID)) { // changed from getID
                 return idxAcct;
             }
         }
@@ -54,4 +64,6 @@ public class Bank {
     public int getCount() {
         return idxNextAccount;
     }
+
+    // TODO phase 2 code
 }
