@@ -32,6 +32,7 @@ public class Account {
     public String getId() { return id; }
     public String getownerName() { return ownerName; }
     public double getbalance() { return balance; }
+    public AccountType getType() { return type; }
 
     // stripped-down version of 'equals' override
     // give it a similar sounding name
