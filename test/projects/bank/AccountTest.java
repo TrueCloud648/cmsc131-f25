@@ -16,7 +16,7 @@ public class AccountTest {
     void setupAccount() {
         accounts = new Account(
             "wz240833",
-            "Anna Gomez"
+            "Anna Gomez",
             8111.00,
             AccountType.SAVINGS
         );
