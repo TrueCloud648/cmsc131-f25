@@ -100,4 +100,97 @@ public class BankTest {
         );
     }
 
+    @Test
+    void testLoadAccounts() {
+        String accountsFilename = "data/testaccounts.csv";
+        boolean result = bank.loadAccounts(accountsFilename);
+        assertEquals(
+            true,
+            result
+        );
+        Account[] accounts = bank.getAccounts();
+        assertEquals(
+            2,
+            bank.getCount()
+        );
+
+        // check validity of stored rental item
+        Account account = accounts[0];
+        assertEquals(
+            "wz240833",
+            account.getId()
+        );
+        assertEquals(
+            "Anna Gomez",
+            account.getownerName()
+        );
+        assertEquals(
+            AccountType.SAVINGS,
+            account.getType()
+        );
+        assertEquals(
+            8111.00,
+            account.getBalance(),
+            1e-2
+        );
+
+        account = accounts[1];
+        assertEquals(
+            "hr108256",
+            account.getownerName()
+        );
+        assertEquals(
+            AccountType.CHECKING,
+            account.getType()
+        );
+        assertEquals(
+            1715.18,
+            account.getbalance(),
+            1e-2
+        );
+    } //ending testLoadAccounts
+
+    @Test
+    void testWriteAccountsFail() {
+        assertEquals(false, bank.writeAccounts("not/a/real.file"));
+    }
+
+    @Test
+    void testWriteAccounts() {
+        String accountsFilename = "data/testaccounts.csv";
+        boolean result = bank.loadAccounts(accountsFilename);
+        assertEquals(true, result);
+
+        accountsFilename = "data/testaccounts-out.csv";
+        bank.writeAccounts(accountsFilename);
+
+        Bank bankReload = new Bank();
+        bankReload.loadAccounts(accountsFilename);
+
+        assertEquals(bank.getCount(), bankReload.getCount());
+
+        Account[] bankAccounts = bank.getAccounts();
+        Account[] bankReloadAccounts = bank.getAccounts();
+        assertEquals(bankAccounts.length, bankReloadAccounts.length);
+        fpr (int idx = 0; idx < bank.getCount(); idx++) {
+            assertEquals(
+                bankAccounts[idx],
+                bankReloadAccounts[idx],
+                String.format("Rental item percents should match.", idx)
+            );
+        }
+    }
+
+    @Test
+    void testProcessTransactionsFailure() {
+
+
+    }
+
+    @Test
+    void testProcessTransactionsSuccess() {
+
+        
+    }
+
 } // end: class BankTest

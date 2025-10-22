@@ -79,4 +79,12 @@ public class AccountTest {
         );
     }
 
+    @Test
+    void testToCSV() {
+        assertEquals(
+            "savings,wz240833,Anna Gomez,8111.00",
+            account.toCSV()
+        );
+    }
+
 }

@@ -1,6 +1,11 @@
 package projects.bank;
 
-import java.lang.reflect.Array;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 
 public class Bank {
 
@@ -66,4 +71,49 @@ public class Bank {
     }
 
     // TODO phase 2 code
+
+    public boolean loadAccounts (String filename) {
+        boolean result = true;
+        File inputFile = new File(filename);
+        Scanner scan;
+        try {
+            scan = new Scanner(inputFile);
+            while (scan.hasNextLine()) {
+                String csvString = scan.nextLine();
+                Account account = Account.make(csvString);
+                add(account);
+            }
+            scan.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            result = false;
+        }
+        return result;
+    }
+
+    public boolean writeAccounts (String filename) {
+        File file = new File(filename);
+        Filewriter writer;
+        try {
+            writer = new Filewriter(file);
+            for (int idx = 0; idx < idxNextAccount; idx++) {
+                Account account = accounts[idx];
+                String accountCsv = account.toCSV();
+                writer.write(accountCsv + System.lineSeparator());
+            }
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Account[] getAccounts() {
+        return accounts;
+    }
+
+    public int processTransactions(String filename) {
+        throw new UnsupportedOperationException("Student must implement.")
+    }
 }
